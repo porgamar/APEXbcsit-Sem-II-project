@@ -1,37 +1,67 @@
 <html>
-    <head>
-        <meta name="viewport" content="width:device-width; initial-scale:1;">
-        <title>
-            Contact us!
-        </title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="images/weblogo.png">
-    </head>
 
-    <body>
-        
-        <section id="header">
-                <a href="index.html"> <img src="images/weblogo1.png" id="logo"> </a>
-                <nav>
-                 <ul class="nav_link">
-                    <li><a href="index.html"> Home</a></li>
-                    <li><a href="gamelist.html"> Games</a></li>
-                    <li><a href="upcoming.html"> Upcoming games</a></li>
-                    <li><a href="contact.html"> Contact us</a></li>
-                    
-                 </ul>
-                </nav>
-                
-        </section>
+<head>
+    <meta name="viewport" content="width:device-width; initial-scale:1;">
+    <title>
+        Contact us!
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/weblogo.png">
+</head>
 
-        <main>
-            <div class="main_box">
-                <div class="content">
-                    <p> Contact us if u have any problems!</p>
+<body>
+
+    <section id="header">
+        <a href="index.html"> <img src="images/weblogo1.png" id="logo"> </a>
+        <nav>
+            <ul class="nav_link">
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="gamelist.html"> Games</a></li>
+                <li><a href="upcoming.html"> Upcoming games</a></li>
+                <li><a href="contact.html"> Contact us</a></li>
+
+            </ul>
+        </nav>
+
+    </section>
+
+    <section class="contact-us-section">
+        <div class="contact-us-wrapper">
+            <h2>Contact Us</h2>
+            <p class="contact-subtext">
+                We'd love to hear from you. For game support, account issues, or general questions, send us a message.
+            </p>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
                 </div>
-            </div>
-        </main>
-        <footer class="footer-grid">
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message/issue</label>
+                    <textarea id="message" rows="9" placeholder="Describe your feedback or problem."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <footer class="footer-grid">
         <div class="footer-content">
             <div class="footer-logo">
                 <h1>Khelmandu</h1>
@@ -57,6 +87,40 @@
             &copy; 2025 Khelmandu. All rights reserved.
         </div>
     </footer>
-    
-    </body>
+
+
+    <script>
+        //contact page form validation
+            document.querySelector('.contact-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (name.length <= 5) {
+                    alert('Name must be more than 5 characters.');
+                    return;
+                }
+
+                if (!emailPattern.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+
+                if (message.length === 0) {
+                    alert('Please enter a message.');
+                    return;
+                }
+
+                alert('Form submitted successfully!');
+                this.submit();
+            });
+
+    </script>
+
+</body>
+
 </html>
