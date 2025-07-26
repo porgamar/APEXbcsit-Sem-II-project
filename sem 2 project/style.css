@@ -196,7 +196,7 @@ a:link {
     font-family: 'Spartan', sans-serif;
     margin-top: 5%;
     color: rgb(238, 247, 255);
-    font-size: 15vh;
+    font-size: clamp(60px, 10vw, 120px);
 }
 
 #heroDesc>h3 {
@@ -269,10 +269,13 @@ a:link {
 /* Contact page */
 .contact-us-section {
     background-image: url(images/contact-bg.jpg);
-    background-size: contain;
+    object-fit: contain;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-position: -200, 0;
-    height: 100vh;
     padding: 60px 20px;
+    height:100%;
     display: flex;
     justify-content: center;
 }
@@ -280,11 +283,11 @@ a:link {
 .contact-us-wrapper {
     background-color: #1f1f1fd6;
     color: #f2f2f2;
-    max-width: 700px;
-    width: 100%;
+    max-height: 100%;
+    width: 70%;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 0 6vh rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 2em rgba(255, 255, 255, 0.5);
 }
 
 .contact-us-wrapper h2 {
@@ -521,19 +524,18 @@ a:link {
 .upcomingPage {
     display: flex;
     justify-content: center;
-    height:450vh;
     background-image: url(images/UCbg.jpg);
     object-fit: contain;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     filter: brightness(.8);
-    flex-wrap: nowrap; 
 }
 
 .upcoming-container {
     
     margin: 2vh 0;
+    max-height:100%;
     padding: 1vh 2vw;
     width: 70%;
     background-color: #1d2941b9;
@@ -601,7 +603,7 @@ hr {
     color: #ddd;
     padding: 5vh 5vw;
     font-family: 'Segoe UI', sans-serif;
-    min-height: 25vh;
+    /* min-height: 25vh; */
     /* center footer horizontally */
 }
 
@@ -655,7 +657,52 @@ hr {
 
 
 
-@media(max-width:1070px) {
+
+/* RESPONSIVE DESIGN */
+
+/* Tablet and small desktop screens */
+@media (max-width: 1200px) {
+    /* Header adjustments */
+    #logo {
+        width: 25vw;
+        padding-left: 1em;
+    }
+    
+    /* Hero section adjustments */
+    #hero {
+        margin: 3vh 5vh;
+    }
+    
+    #heroDesc > h1 {
+        font-size: 12vh;
+    }
+    
+    #heroDesc > h2 {
+        font-size: 6vh;
+    }
+    
+    #heroDesc > h3 {
+        font-size: 4vh;
+    }
+    
+    /* Games grid - reduce to 2 columns */
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2vh;
+    }
+    
+    /* Slider adjustments */
+    #main {
+        height: 50vh;
+    }
+    
+    .img-slider {
+        min-width: calc(50% - 1vh);
+    }
+}
+
+/* Mobile and tablet hamburger menu */
+@media (max-width: 1070px) {
     #nav_link {
         position: fixed;
         display: flex;
@@ -663,70 +710,618 @@ hr {
         align-items: flex-start;
         justify-content: flex-start;
         top: 0;
-        right: -600px;
+        right: -100%;
         height: 100vh;
-        width: 35vw;
+        width: 60vw;
+        max-width: 300px;
         background-color: #373737;
         padding: 10vh 0 0 10px;
         box-shadow: 0 40px 50px rgb(74, 74, 74);
-        transition: 0.3s;
+        transition: right 0.3s ease;
+        z-index: 1000;
     }
 
     #nav_link.active {
-        right: 0px;
+        right: 0;
     }
 
     #nav_link li {
-        margin-bottom: 1.5em;
-        display: flex;
+        margin-bottom: 2em;
+        width: 100%;
     }
 
     #nav_link li a {
-        color: #DDD7CE;
-        font-family: 'Spartan', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 500;
+        font-size: 1.1rem;
+        padding: 1vh 2vh;
+        display: block;
+        width: 100%;
     }
 
     #mobile {
         display: flex;
+        align-items: center;
     }
 
     #bar {
         display: block;
         color: #e4e4e4;
-        font-size: 2em;
+        font-size: 1.8em;
         cursor: pointer;
-        padding: 1vw;
-        margin-right: 1vw;
+        padding: 1vh 2vh;
     }
 
     #close {
         display: flex;
         position: absolute;
         top: 30px;
-        left: 40px;
-        margin-bottom: 10vh;
+        right: 20px;
         cursor: pointer;
+        z-index: 1001;
     }
 
     #close i {
         color: #e4e4e4;
         font-size: 24px;
     }
-
-    .footer-content {
-        display: flex;
-        /* arrange sections horizontally */
-        gap: 3vw;
-        justify-content: center;
-        flex-wrap: wrap;
-        /* wrap on small screens */
-        text-align: center;
-        margin-bottom: 3em;
-    }
-
-
 }
 
+/* Tablet screens */
+
+@media (max-width: 768px) {
+    /* Header */
+    #logo {
+        width: 35vw;
+        padding-left: 1em;
+    }
+    
+    /* Hero section - major fixes */
+    #hero {
+        flex-direction: column;
+        height: auto;
+        margin: 2vh;
+        text-align: center;
+        align-items: center;
+    }
+    
+    #heroDesc {
+        order: 1;
+        width: 100%;
+        align-items: center !important;
+        text-align: center;
+    }
+    
+    #desc-overlay {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+        margin-top: 3vh;
+    }
+    
+    #desc-overlay img {
+        width: 80%;
+        max-width: 400px;
+        height: auto;
+    }
+    
+    #heroDesc > h1 {
+        font-size: 8vh;
+        margin-top: 1vh;
+        text-align: center;
+    }
+    
+    #heroDesc > h2 {
+        font-size: 4vh;
+        text-align: center;
+        margin-top: 1vh;
+    }
+    
+    #heroDesc > h3 {
+        font-size: 3vh;
+        text-align: center;
+    }
+    
+    #heroDesc-numb {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2vh;
+        margin-top: 2vh;
+    }
+    
+    #heroDesc #DescNum,
+    #heroDesc #DescDet {
+        margin: 0;
+        min-width: 120px;
+    }
+    
+    /* Slider */
+    #main {
+        height: 40vh;
+        margin: 2vh 0;
+    }
+    
+    .img-slider {
+        min-width: calc(100% - 2vh);
+    }
+    
+    /* Games page */
+    #gameMain {
+        margin: 2vh 1em;
+        height: auto;
+        min-height: 120vh;
+    }
+    
+    .games-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    
+    .GameObj {
+        height: 40vh;
+        margin: 2vh 0 !important;
+    }
+    
+    #searchInput {
+        width: 80%;
+        font-size: 1rem;
+    }
+    
+    /* Contact page */
+    .contact-us-section {
+        height: auto;
+        max-height: 100vh;
+        padding: 20px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact-us-wrapper {
+        padding: 20px;
+        margin: 0 auto;
+        width: 95%;
+        max-width: 500px;
+    }
+    
+    .contact-us-wrapper h2 {
+        font-size: 2em;
+        text-align: center;
+    }
+    
+    .contact-subtext {
+        text-align: center;
+        font-size: 0.9em;
+    }
+    
+    .contact-form .form-group {
+        margin-bottom: 1.2em;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        width: calc(100% - 28px);
+        padding: 12px 14px;
+        font-size: 0.95rem;
+        box-sizing: border-box;
+    }
+    
+    .send-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    /* Upcoming games - major fixes */
+    .upcomingPage {
+        height: auto;
+        min-height: 100vh;
+        padding: 2vh 0;
+    }
+    
+    .upcoming-container {
+        width: 95%;
+        height:auto;
+        margin: 2vh auto;
+        padding: 2vh;
+    }
+    
+    .upcoming-container h1 {
+        font-size: 5vw;
+        margin-bottom: 4vh;
+        text-align: center;
+    }
+    
+    .game-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 2vh 0;
+        margin-bottom: 3vh;
+    }
+    
+    .game-item img {
+        width: 70vw;
+        height: auto;
+        max-width: 250px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        margin: 0 auto 2vh auto;
+        display: block;
+    }
+    
+    .ucGameDetail {
+        width: 100%;
+        padding: 0 1vh;
+    }
+    
+    .ucGameDetail h2 {
+        font-size: 1.8em;
+        margin-bottom: 1vh;
+        color: #00d8ff;
+    }
+    
+    .ucGameDetail p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #fff;
+    }
+    
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 1vh;
+        text-align: center;
+    }
+    
+    .payment-icons {
+        justify-content: center;
+    }
+    
+    /* Pagination */
+    .pagination #page-number {
+        font-size: 4vw;
+        padding: 1.5vh 2.5vh;
+    }
+    
+    .pagination button {
+        font-size: 5vw;
+        padding: 1.5vh 2.5vh;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    /* Header */
+    #logo {
+        width: 40vw;
+        padding-left: 0.5em;
+    }
+    
+    #nav_link {
+        width: 70vw;
+    }
+    
+    /* Hero section*/
+    #hero {
+        margin: 1vh;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #heroDesc {
+        align-items: center !important;
+    }
+    
+    #heroDesc > h1 {
+        font-size: 6vh;
+        text-align: center;
+    }
+    
+    #heroDesc > h2 {
+        font-size: 3.5vh;
+        text-align: center;
+    }
+    
+    #heroDesc > h3 {
+        font-size: 2.8vh;
+        text-align: center;
+    }
+    
+    #heroDesc-numb {
+        flex-direction: column;
+        gap: 1vh;
+        align-items: center;
+    }
+    
+    #heroDesc #DescNum,
+    #heroDesc #DescDet {
+        margin: 0.5vh;
+        width: 200px;
+        text-align: center;
+    }
+    
+    #heroDesc #DescNum > h4,
+    #heroDesc #DescDet > h4 {
+        font-size: 4vh;
+        text-align: center;
+    }
+    
+    #heroDesc #DescDet > p,
+    #heroDesc #DescNum > p {
+        font-size: 2vh;
+        text-align: center;
+    }
+    
+    #desc-overlay {
+        width: 100%;
+        justify-content: center;
+        margin-top: 2vh;
+    }
+    
+    #desc-overlay img {
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    /* Main slider */
+    #main {
+        height: 30vh;
+    }
+    
+    #main #top h1 {
+        font-size: 1.2em;
+        text-align: center;
+        padding: 0 1vh;
+    }
+    
+    /* Games page */
+    #gameMain {
+        margin: 1vh 0.5em;
+    }
+    
+    .GameObj {
+        height: 35vh;
+    }
+    
+    .games-grid .buy {
+        flex-direction: column;
+        gap: 1vh;
+        text-align: center;
+    }
+    
+    .games-grid .buy p {
+        font-size: 0.9em;
+    }
+    
+    .games-grid button {
+        padding: 0.8vh 2vh;
+        font-size: 0.8em;
+    }
+    
+    #searchInput {
+        width: 95%;
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    /* Contact page - mobile fixes */
+    .contact-us-section {
+        padding: 20px 10px;
+    }
+    
+    .contact-us-wrapper {
+        padding: 25px 20px;
+        margin: 10px;
+        width: 70%;
+        border-radius: 12px;
+    }
+    
+    .contact-us-wrapper h2 {
+        font-size: 1.8em;
+        margin-bottom: 12px;
+    }
+    
+    .contact-subtext {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+    
+    .contact-form .form-group {
+        margin-bottom: 18px;
+    }
+    
+    .contact-form label {
+        font-size: 0.95rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+    
+    .send-btn {
+        padding: 14px;
+        font-size: 1rem;
+    }
+    
+    /* Footer for very small screens */
+    footer-grid {
+        padding: 30px 15px;
+    }
+    
+    .footer-content {
+        gap: 25px;
+    }
+    
+    .footer-logo h1 {
+        font-size: 1.7em;
+    }
+    
+    .footer-logo p {
+        font-size: 0.9rem;
+    }
+    
+    .footer-info h4,
+    .footer-payments h4 {
+        font-size: 1.2em;
+    }
+    
+    .footer-info p {
+        font-size: 0.9rem;
+    }
+    
+    .payment-icons {
+        gap: 12px;
+    }
+    
+    .payment-icons img {
+        height: 30px;
+        padding: 5px;
+    }
+    
+    .footer-bottom {
+        font-size: 13px;
+        padding-top: 15px;
+    }
+}
+
+
+/* Very small screens */
+@media (max-width: 320px) {
+    .contact-us-section {
+        padding: 15px 5px;
+    }
+    
+    .contact-us-wrapper {
+        padding: 20px 15px;
+        margin: 5px;
+        width: calc(100% - 20px);
+    }
+    
+    .contact-us-wrapper h2 {
+        font-size: 1.6em;
+    }
+    
+    .contact-subtext {
+        font-size: 0.85rem;
+    }
+    
+    .contact-form label {
+        font-size: 0.9rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .send-btn {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+    
+    /* Upcoming games - mobile fixes */
+    .upcomingPage {
+        height: auto;
+        min-height: 100vh;
+        padding: 1vh 0;
+    }
+    
+    .upcoming-container {
+        width: 98%;
+        height:auto;
+        padding: 1vh;
+        margin: 1vh auto;
+    }
+    
+    .upcoming-container h1 {
+        font-size: 6vw;
+        margin-bottom: 3vh;
+        text-align: center;
+    }
+    
+    .game-item {
+        padding: 1.5vh 0;
+        margin-bottom: 2vh;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .game-item img {
+        width: 80vw;
+        height: auto;
+        max-width: 200px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        margin: 0 auto 1.5vh auto;
+        display: block;
+    }
+    
+    .ucGameDetail {
+        padding: 0;
+    }
+    
+    .ucGameDetail h2 {
+        font-size: 1.4em;
+        margin-bottom: 1vh;
+    }
+    
+    .ucGameDetail p {
+        font-size: 13px;
+        line-height: 1.5;
+        padding: 0 1vh;
+    }
+    
+    /* Cart button */
+    #cart {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    #cart i {
+        font-size: 3vh;
+        padding: 1.5vh;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        padding: 3vh 3vw;
+    }
+    
+    .footer-logo h1 {
+        font-size: 1.5em;
+    }
+    
+    .payment-icons img {
+        height: 25px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+    #heroDesc > h1 {
+        font-size: 5vh;
+    }
+    
+    #heroDesc > h2 {
+        font-size: 2.5vh;
+    }
+    
+    #main {
+        height: 25vh;
+    }
+    
+    .GameObj {
+        height: 30vh;
+    }
+    
+    .upcoming-container h1 {
+        font-size: 7vw;
+    }
+    
+    .game-item img {
+        width: 70vw;
+        height: 70vw;
+    }
+}
 
