@@ -30,13 +30,103 @@
 
     </section>
 
-    <main>
-        <div class="main_box">
-            <div class="content">
-                <p> upcoming games herre wowowowow</p>
+    <section class="upcomingPage">
+        <section class="upcoming-container">
+            <h1>Upcoming Games!</h1>
+
+            <div class="game-item">
+                <img src="images/Upcoming/gta6.jpg" alt="GTA VI">
+                <div class="ucGameDetail">
+                    <h2>Grand Theft Auto VI</h2>
+                    <p>Return to Vice City in this massive open-world adventure featuring two protagonists and a deeply
+                        woven criminal story in a modern, evolving city.<br><strong>Release: May 26, 2026</strong></p>
+                </div>
             </div>
-        </div>
-    </main>
+
+            <div class="game-item">
+                <img src="images/Upcoming/re.jpg" alt="Resident Evil Requiem">
+                <div class="ucGameDetail">
+                    <h2>Resident Evil: Requiem</h2>
+                    <p>Step into the shoes of Grace Ashcroft, an FBI agent uncovering a conspiracy tied to Umbrella’s
+                        legacy in a hauntingly reimagined Raccoon City.<br><strong>Release: February 27, 2026</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="game-item">
+                <img src="images/Upcoming/marvel.jpg" alt="Marvel 1943">
+                <div class="ucGameDetail">
+                    <h2>Marvel 1943: Rise of Hydra</h2>
+                    <p>Team up as Captain America and Black Panther in Nazi-occupied Paris. Fight Hydra’s forces in a
+                        gripping WWII narrative adventure.<br><strong>Release: March 31, 2026</strong></p>
+                </div>
+            </div>
+
+            <div class="game-item">
+                <img src="images/Upcoming/starwars.jpg" alt="Star Wars Zero Company">
+                <div class="ucGameDetail">
+                    <h2>Star Wars: Zero Company</h2>
+                    <p>Lead elite clone troopers in turn-based tactical combat across the Clone Wars. Deep strategy
+                        meets galactic scale storytelling.<br><strong>Release: December 2026</strong></p>
+                </div>
+            </div>
+
+            <div class="game-item">
+                <img src="images/Upcoming/gearseday.jpg" alt="Gears of War: E‑Day">
+                <div class="ucGameDetail">
+                    <h2>Gears of War: E-Day</h2>
+                    <p>Witness the origins of the Gears saga during Emergence Day, when the Locusts first rose. A gritty
+                        shooter prequel packed with emotion and action.<br><strong>Release: 2026</strong></p>
+                </div>
+            </div>
+
+            <div class="game-item">
+                <img src="images/Upcoming/subnautica 2.jpg" alt="Subnautica 2">
+                <div class="ucGameDetail">
+                    <h2>Subnautica 2</h2>
+                    <p>Return to the alien ocean depths in this survival sequel featuring new tools, deeper biomes, and
+                        cooperative multiplayer support.<br><strong>Release: Early 2026</strong></p>
+                </div>
+            </div>
+
+            <div class="game-item">
+                <img src="images/Upcoming/fatesend.png" alt="At Fate's End">
+                <div class="ucGameDetail">
+                    <h2>At Fat's End</h2>
+                    <p>A story-driven RPG where a fallen princess must recover her mystical sword and unite rival
+                        kingdoms in a realm torn by ancient magic.<br><strong>Release: 2026</strong></p>
+                </div>
+            </div>
+
+            <div class="game-item">
+                <img src="images/Upcoming/fable.png" alt="Fable Reboot">
+                <div class="ucGameDetail">
+                    <h2>Fable (Reboot)</h2>
+                    <p>Albion returns in this modern reimagining of the Fable universe, filled with humor, action, and
+                        choices that shape your hero's destiny.<br><strong>Release: 2026</strong></p>
+                </div>
+            </div>
+
+            <div class="game-item">
+                <img src="images/Upcoming/elderscrolls.jpg" alt="Elder Scrolls VI">
+                <div class="ucGameDetail">
+                    <h2>The Elder Scrolls VI</h2>
+                    <p>Bethesda's next flagship RPG following Skyrim, promising vast lands, dynamic NPCs, and next-gen
+                        world-building. Region possibly Hammerfell.<br><strong>Release: 2026 or later</strong></p>
+                </div>
+            </div>
+
+            <div class="game-item">
+                <img src="images/Upcoming/dawnwalker.jpg" alt="The Blood of Dawnwalker">
+                <div class="ucGameDetail">
+                    <h2>The Blood of Dawnwalker</h2>
+                    <p>Play as a lone vampire warrior resisting a corrupted bloodline in this gothic RPG full of deadly
+                        choices, stealth, and power struggles.<br><strong>Release: 2026 (Tentative)</strong></p>
+                </div>
+            </div>
+
+        </section>
+    </section>
 
 
 
@@ -69,6 +159,24 @@
             &copy; 2025 Khelmandu. All rights reserved.
         </div>
     </footer>
+
+    <script>
+        //header hamburger menu
+        const bar = document.getElementById("bar");
+        const nav = document.getElementById("nav_link");
+        const close = document.getElementById("close");
+
+        if (bar) {
+            bar.addEventListener('click', () => {
+                nav_link.classList.add('active');
+            })
+        }
+        if (close) {
+            close.addEventListener('click', () => {
+                nav_link.classList.remove('active');
+            })
+        }
+    </script>
 </body>
 
 </html>

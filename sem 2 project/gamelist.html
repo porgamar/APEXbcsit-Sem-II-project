@@ -47,6 +47,12 @@
         </div>
     </section>
 
+    <section style="position: relative;">
+        <div id="cart"> <a href="">
+                <i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </section>
+
     <footer class="footer-grid">
         <div class="footer-content">
             <div class="footer-logo">
@@ -75,6 +81,22 @@
     </footer>
 
     <script>
+        //header hamburger menu
+        const bar = document.getElementById("bar");
+        const nav = document.getElementById("nav_link");
+        const close = document.getElementById("close");
+
+        if (bar) {
+            bar.addEventListener('click', () => {
+                nav_link.classList.add('active');
+            })
+        }
+        if (close) {
+            close.addEventListener('click', () => {
+                nav_link.classList.remove('active');
+            })
+        }
+
         let allGames = [];
         let currentPage = 1;
         const resultsPerPage = 9;
@@ -106,32 +128,44 @@
             document.getElementById('next').disabled = page >= totalPages;
         }
 
-        
+
         // Render game cards inside #games
         function displayGames(games) {
-            const gamesDiv = document.getElementById('games');
-            gamesDiv.innerHTML = '';
+    const gamesDiv = document.getElementById('games');
+    gamesDiv.innerHTML = '';
 
-            games.forEach(game => {
-                gamesDiv.innerHTML += `
-                <div class="GameObj" style="margin: 5vh;">
-                    <img src="${game.image}" alt="${game.name}" />
-                     <div class="buy">
-                        <p>NPR ${game.price}</p>
-                        <button><i class="fa-solid fa-cart-shopping"></i> Add to cart</button>
-                    </div>
-                    <div class="game-info">
-                        <div class="game-details">
-                            <h4>${game.name}</h4>
-                            <p>${game.description}</p>
-                         </div>
-                         <div style="width: 1px; height: 100px; background-color: white; margin-right:5%;"></div>
-                        <p>Genres: ${game.genres} </p>
-                    </div>
+    games.forEach(game => {
+        const gameHTML = document.createElement('div');
+        gameHTML.className = 'GameObj';
+        gameHTML.style.margin = '5vh';
+
+        gameHTML.innerHTML = `
+            <img src="${game.image}" alt="${game.name}" />
+            <div class="buy">
+                <p>NPR ${game.price}</p>
+                <button class="cartBtn"><i class="fa-solid fa-cart-shopping"></i> Add to cart</button>
+            </div>
+            <div id="game-info">
+                <div class="game-details">
+                    <h4>${game.name}</h4>
+                    <p>${game.description}</p>
                 </div>
-            `;
-            });
-        }
+                <div style="width: 1px; height: 100px; background-color: white; margin-right:5%;"></div>
+                <p>Genres: ${game.genres}</p>
+            </div>
+        `;
+
+        // ✅ Attach event after creating the button
+        const cartButton = gameHTML.querySelector('.cartBtn');
+        cartButton.addEventListener('click', () => {
+            alert(`${game.name} added to cart!`);
+        });
+
+        gamesDiv.appendChild(gameHTML);
+    });
+}
+
+
 
         // Prev button click handler
         document.getElementById('prev').addEventListener('click', () => {
@@ -161,7 +195,6 @@
             // Display the filtered games
             displayGames(filteredGames);
         });
-
 
 
 

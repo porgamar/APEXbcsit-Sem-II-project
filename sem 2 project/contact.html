@@ -7,12 +7,13 @@
     </title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/weblogo.png">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- link to font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- link to font awesome cdn -->
 </head>
 
 <body>
 
- <section id="header">
+    <section id="header">
         <a href="index.html"> <img src="images/weblogo1.png" id="logo" alt="Khelmandu"> </a>
         <nav>
             <ul id="nav_link">
@@ -94,34 +95,49 @@
 
 
     <script>
+        //header hamburger menu
+        const bar = document.getElementById("bar");
+        const nav = document.getElementById("nav_link");
+        const close = document.getElementById("close");
+
+        if (bar) {
+            bar.addEventListener('click', () => {
+                nav_link.classList.add('active');
+            })
+        }
+        if (close) {
+            close.addEventListener('click', () => {
+                nav_link.classList.remove('active');
+            })
+        }
         //contact page form validation
-            document.querySelector('.contact-form').addEventListener('submit', function (e) {
-                e.preventDefault();
+        document.querySelector('.contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
 
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const message = document.getElementById('message').value.trim();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
 
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-                if (name.length <= 5) {
-                    alert('Name must be more than 5 characters.');
-                    return;
-                }
+            if (name.length <= 5) {
+                alert('Name must be more than 5 characters.');
+                return;
+            }
 
-                if (!emailPattern.test(email)) {
-                    alert('Please enter a valid email address.');
-                    return;
-                }
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
 
-                if (message.length === 0) {
-                    alert('Please enter a message.');
-                    return;
-                }
+            if (message.length === 0) {
+                alert('Please enter a message.');
+                return;
+            }
 
-                alert('Form submitted successfully!');
-                this.submit();
-            });
+            alert('Form submitted successfully!');
+            this.submit();
+        });
 
     </script>
 
