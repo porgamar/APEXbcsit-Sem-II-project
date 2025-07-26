@@ -1,41 +1,52 @@
 <html>
-    <head>
-        <meta name="viewport" content="width:device-width; initial-scale:1;">
-        <title>
-            Khelmandu | Games
-        </title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="images/weblogo.png">
-    </head>
 
-    <body>
-        
-        <section id="header">
-                <a href="index.html"> <img src="images/weblogo1.png" id="logo"> </a>
-                <nav>
-                 <ul class="nav_link">
-                    <li><a href="index.html"> Home</a></li>
-                    <li><a href="gamelist.html"> Games</a></li>
-                    <li><a href="upcoming.html"> Upcoming games</a></li>
-                    <li><a href="contact.html"> Contact us</a></li>
-                 </ul>
-                </nav>
-                
-        </section>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1;">
+    <title>
+        Khelmandu | Games
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/weblogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- link to font awesome cdn -->
+</head>
 
-        <main>
-            <div class="main_box">
-                <div class="content">
-                    <p> game game game yeah </p>
-                </div>
-            </div>
-        </main>
+<body>
 
+    <section id="header">
+        <a href="index.html"> <img src="images/weblogo1.png" id="logo" alt="Khelmandu"> </a>
+        <nav>
+            <ul id="nav_link">
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="gamelist.html"> Games</a></li>
+                <li><a href="upcoming.html"> Upcoming games</a></li>
+                <li><a href="contact.html"> Contact us</a></li>
+                <a href="#" id="close"><i class="fas fa-times"></i></a>
+            </ul>
+        </nav>
+        <div id="mobile">
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
 
+    </section>
+    <!-- 
+    <div id="search-section">
+            <input type="text" id="searchInput" placeholder="Search games...">
+        </div> -->
+    <section id="gameMain">
 
+        <div id="games" class="games-grid">
+            <!-- game cards will load here -->
 
+        </div>
+        <div id="pagination" class="pagination">
+            <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
+            <span id="page-number">1</span>
+            <button id="next"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+    </section>
 
-        <footer class="footer-grid">
+    <footer class="footer-grid">
         <div class="footer-content">
             <div class="footer-logo">
                 <h1>Khelmandu</h1>
@@ -61,5 +72,86 @@
             &copy; 2025 Khelmandu. All rights reserved.
         </div>
     </footer>
-    </body>
+
+    <script>
+        let allGames = [];
+        let currentPage = 1;
+        const resultsPerPage = 9;
+
+        // Fetch games JSON and initialize
+        fetch('games.json')
+            .then(response => response.json())
+            .then(data => {
+                allGames = data;
+                displayGamesPage(currentPage);
+            })
+            .catch(err => {
+                console.error('Failed to load games.json:', err);
+                document.getElementById('games').innerHTML = '<p>Failed to load games.</p>';
+            });
+
+        // Display games for the current page
+        function displayGamesPage(page) {
+            const startIndex = (page - 1) * resultsPerPage;
+            const endIndex = startIndex + resultsPerPage;
+            const paginatedGames = allGames.slice(startIndex, endIndex);
+
+            displayGames(paginatedGames);
+
+            document.getElementById('page-number').textContent = page;
+
+            const totalPages = Math.ceil(allGames.length / resultsPerPage);
+            document.getElementById('prev').disabled = page <= 1;
+            document.getElementById('next').disabled = page >= totalPages;
+        }
+
+        // Render game cards inside #games
+        function displayGames(games) {
+            const gamesDiv = document.getElementById('games');
+            gamesDiv.innerHTML = '';
+
+            games.forEach(game => {
+                gamesDiv.innerHTML += `
+                <div class="GameObj" style="margin: 5vh;">
+                    <img src="${game.image}" alt="${game.name}" />
+                     <div class="buy">
+                        <p>NPR ${game.price}</p>
+                        <button><i class="fa-solid fa-cart-shopping"></i> Add to cart</button>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-details">
+                            <h4>${game.name}</h4>
+                            <p>${game.description}</p>
+                         </div>
+                         <div style="width: 1px; height: 100px; background-color: white; margin-right:5%;"></div>
+                        <p>Genres: ${game.genres} </p>
+                    </div>
+                </div>
+            `;
+            });
+        }
+
+        // Prev button click handler
+        document.getElementById('prev').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayGamesPage(currentPage);
+            }
+        });
+
+        // Next button click handler
+        document.getElementById('next').addEventListener('click', () => {
+            const totalPages = Math.ceil(allGames.length / resultsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayGamesPage(currentPage);
+            }
+        });
+
+
+
+    </script>
+
+</body>
+
 </html>

@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "Black Myth: Wukong",
+    "price": 4500,
+    "image": "images/Games/black myth wukong.avif",
+    "description": "An action RPG rooted in Chinese mythology, following the journey of the Destined One.",
+    "genres": ["Action", "RPG", "Mythology"]
+  },
+  {
+    "id": 2,
+    "name": "Borderlands 4",
+    "price": 5200,
+    "image": "images/Games/borderlands 4.avif",
+    "description": "A chaotic looter-shooter packed with guns, humor, and interstellar mayhem.",
+    "genres": ["Shooter", "Action", "Co-op"]
+  },
+  {
+    "id": 3,
+    "name": "Cities: Skylines II",
+    "price": 4000,
+    "image": "images/Games/cities skylines 2.avif",
+    "description": "A complex city-building simulator with realistic infrastructure and urban dynamics.",
+    "genres": ["Simulation", "Strategy", "City Builder"]
+  },
+  {
+    "id": 4,
+    "name": "Destiny 2",
+    "price": 2440,
+    "image": "images/Games/destiny 2.avif",
+    "description": "A free-to-play online shooter featuring intense PvE and PvP action in a sci-fi universe.",
+    "genres": ["FPS", "MMO", "Sci-fi"]
+  },
+  {
+    "id": 5,
+    "name": "Dune: Awakening",
+    "price": 5500,
+    "image": "images/Games/Dune awakening.avif",
+    "description": "Survive and conquer on the harsh desert world of Arrakis in this MMO survival game.",
+    "genres": ["Survival", "MMO", "Sci-fi"]
+  },
+  {
+    "id": 6,
+    "name": "Dying Light 2",
+    "price": 4300,
+    "image": "images/Games/Dying light 2.avif",
+    "description": "Parkour through a zombie-infested city in this open-world survival horror RPG.",
+    "genres": ["Action", "Horror", "Open World"]
+  },
+  {
+    "id": 7,
+    "name": "Elden Ring",
+    "price": 4800,
+    "image": "images/Games/elden ring.avif",
+    "description": "A vast fantasy world filled with lore, danger, and epic boss battles, from the makers of Dark Souls.",
+    "genres": ["RPG", "Soulslike", "Fantasy"]
+  },
+  {
+    "id": 8,
+    "name": "Farming Simulator 25",
+    "price": 3500,
+    "image": "images/Games/farming simulator 25.avif",
+    "description": "Realistic farming management with new crops, vehicles, and production chains.",
+    "genres": ["Simulation", "Casual", "Management"]
+  },
+  {
+    "id": 9,
+    "name": "GTA V",
+    "price": 2500,
+    "image": "images/Games/gta V.avif",
+    "description": "A crime-filled open world game featuring three protagonists in the city of Los Santos.",
+    "genres": ["Action", "Open World", "Crime"]
+  },
+  {
+    "id": 10,
+    "name": "Guilty Gear",
+    "price": 3000,
+    "image": "images/Games/Guilty gear.avif",
+    "description": "A high-octane anime-style fighting game known for its visuals and combo-heavy gameplay.",
+    "genres": ["Fighting", "Anime", "Arcade"]
+  },
+  {
+    "id": 11,
+    "name": "Hello Neighbor",
+    "price": 2000,
+    "image": "images/Games/hello neighbor.avif",
+    "description": "A stealth horror game where you must uncover the secrets hidden in your creepy neighbor’s basement.",
+    "genres": ["Stealth", "Horror", "Puzzle"]
+  },
+  {
+    "id": 12,
+    "name": "Hitman",
+    "price": 3600,
+    "image": "images/Games/hitman.avif",
+    "description": "Play as Agent 47 and execute targets with precision across a globe-trotting campaign.",
+    "genres": ["Stealth", "Action", "Assassination"]
+  },
+  {
+    "id": 13,
+    "name": "Killing Floor 3",
+    "price": 4200,
+    "image": "images/Games/Killing floor 3.avif",
+    "description": "A co-op survival horror FPS filled with waves of grotesque enemies and powerful weapons.",
+    "genres": ["Shooter", "Horror", "Co-op"]
+  },
+  {
+    "id": 14,
+    "name": "Kingdom Come: Deliverance",
+    "price": 3400,
+    "image": "images/Games/kingdom come deliverance.avif",
+    "description": "A realistic medieval RPG set in the Kingdom of Bohemia with historical accuracy.",
+    "genres": ["RPG", "Historical", "Medieval"]
+  },
+  {
+    "id": 15,
+    "name": "Red Dead Redemption 2",
+    "price": 5000,
+    "image": "images/Games/rdr2.avif",
+    "description": "A cinematic western epic with deep storytelling and a living open world.",
+    "genres": ["Action", "Open World", "Western"]
+  },
+  {
+    "id": 16,
+    "name": "RimWorld",
+    "price": 2200,
+    "image": "images/Games/rimworld.avif",
+    "description": "A sci-fi colony sim driven by intelligent AI storytellers and player choices.",
+    "genres": ["Simulation", "Strategy", "Sci-fi"]
+  },
+  {
+    "id": 17,
+    "name": "Ronin",
+    "price": 2800,
+    "image": "images/Games/Ronin.avif",
+    "description": "A tactical platformer where precision and stealth define your path of vengeance.",
+    "genres": ["Platformer", "Tactical", "Stealth"]
+  },
+  {
+    "id": 18,
+    "name": "Stray",
+    "price": 2400,
+    "image": "images/Games/stray.avif",
+    "description": "Explore a cybercity as a lost cat in this atmospheric adventure puzzle game.",
+    "genres": ["Adventure", "Puzzle", "Cyberpunk"]
+  },
+  {
+    "id": 19,
+    "name": "The King Is Watching",
+    "price": 2700,
+    "image": "images/Games/The king is watching.avif",
+    "description": "A strategy and espionage game where your every move is observed by an omnipotent ruler.",
+    "genres": ["Strategy", "Espionage", "Narrative"]
+  },
+  {
+    "id": 20,
+    "name": "The Last of Us",
+    "price": 5500,
+    "image": "images/Games/the last of us.avif",
+    "description": "A gripping post-apocalyptic story of survival, love, and loss across a ravaged America.",
+    "genres": ["Action", "Adventure", "Survival"]
+  }
+]
