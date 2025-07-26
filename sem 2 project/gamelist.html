@@ -107,10 +107,6 @@
             .then(data => {
                 allGames = data;
                 displayGamesPage(currentPage);
-            })
-            .catch(err => {
-                console.error('Failed to load games.json:', err);
-                document.getElementById('games').innerHTML = '<p>Failed to load games.</p>';
             });
 
         // Display games for the current page
@@ -131,15 +127,15 @@
 
         // Render game cards inside #games
         function displayGames(games) {
-    const gamesDiv = document.getElementById('games');
-    gamesDiv.innerHTML = '';
+            const gamesDiv = document.getElementById('games');
+            gamesDiv.innerHTML = '';
 
-    games.forEach(game => {
-        const gameHTML = document.createElement('div');
-        gameHTML.className = 'GameObj';
-        gameHTML.style.margin = '5vh';
+            games.forEach(game => {
+                const gameHTML = document.createElement('div');
+                gameHTML.className = 'GameObj';
+                gameHTML.style.margin = '5vh';
 
-        gameHTML.innerHTML = `
+                gameHTML.innerHTML = `
             <img src="${game.image}" alt="${game.name}" />
             <div class="buy">
                 <p>NPR ${game.price}</p>
@@ -153,19 +149,19 @@
                 <div style="width: 1px; height: 100px; background-color: white; margin-right:5%;"></div>
                 <p>Genres: ${game.genres}</p>
             </div>
-        `;
+            `;
 
-        // ✅ Attach event after creating the button
-        const cartButton = gameHTML.querySelector('.cartBtn');
-        cartButton.addEventListener('click', () => {
-            alert(`${game.name} added to cart!`);
-        });
+                // ✅ Attach event after creating the button
+                const cartButton = gameHTML.querySelector('.cartBtn');
+                cartButton.addEventListener('click', () => {
+                    alert(`${game.name} added to cart!`);
+                });
 
-        gamesDiv.appendChild(gameHTML);
-    });
-}
+                gamesDiv.appendChild(gameHTML);
+            });
+        }
 
-
+        
 
         // Prev button click handler
         document.getElementById('prev').addEventListener('click', () => {

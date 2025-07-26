@@ -1,13 +1,14 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width:device-width; initial-scale:1;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         Khelmandu- Buy games from Nepal!
     </title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/weblogo.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- link to font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- link to font awesome cdn -->
 </head>
 
 <body class="homepage">
@@ -34,38 +35,31 @@
     </section>
 
     <div id="main">
-        <div class="slider">
-
-            <div id="top">
-                <h1> Hottest games of the week 🔥 </h1>
+        <div id="top">
+            <h1> Hottest games of the week 🔥 </h1>
+        </div>
+        <br>
+        <div class="slider" id="sliderf">
+            <div class="img-slider">
+                <img src="images/slider/dune awakening.jpg" alt="Dune Awakening" class="slide">
             </div>
-
-            <div id="sliderf">
-                <div class="img-slider">
-                    <img src="images/slider/dune awakening.jpg" alt="Dune Awakening" class="slide">
-                    <a href=""></a>
-
-                    <img src="images/slider/marvel rivals.jpg" alt="Marvel Rivals" class="slide">
-                    <a href=""></a>
-
-                    <img src="images/slider/rdr2.png" alt="Red Dead Redemption 2" class="slide">
-                    <a href=""></a>
-
-                    <img src="images/slider/rimworld.jpg" alt="Rimworld" class="slide">
-                    <a href=""></a>
-
-                    <img src="images/slider/silent hill 2.jpg" alt="Silent Hill 2" class="slide">
-                    <a href=""></a>
-
-                    <img src="images/slider/umamusume.jpg" alt="Umamusume" class="slide">
-                    <a href=""></a>
-                </div>
-
+            <div class="img-slider">
+                <img src="images/slider/marvel rivals.jpg" alt="Marvel Rivals" class="slide">
             </div>
-
+            <div class="img-slider">
+                <img src="images/slider/rdr2.png" alt="Red Dead Redemption 2" class="slide">
+            </div>
+            <div class="img-slider">
+                <img src="images/slider/rimworld.jpg" alt="Rimworld" class="slide">
+            </div>
+            <div class="img-slider">
+                <img src="images/slider/silent hill 2.jpg" alt="Silent Hill 2" class="slide">
+            </div>
+            <div class="img-slider">
+                <img src="images/slider/umamusume.jpg" alt="Umamusume" class="slide">
+            </div>
         </div>
     </div>
-
 
     <section id="hero">
         <div id="heroDesc">
@@ -78,17 +72,17 @@
             <div id="heroDesc-numb">
                 <div id="DescNum">
                     <h4> 20,000+ </h4>
-                    <p> Happy Customers</p>                    
+                    <p> Happy Customers</p>
                 </div>
                 <div id="DescDet">
                     <h4> 100+ </h4>
-                <p> Available Games</p>
+                    <p> Available Games</p>
                 </div>
-               
+
             </div>
-            
+
         </div>
-        
+
 
         <div id="desc-overlay">
             <img src="images/spidermanbg.png">
@@ -128,7 +122,43 @@
 
 
 
-    <script src="script.js"></script>
+    <script>
+        //header hamburger menu
+        const bar = document.getElementById("bar");
+        const nav = document.getElementById("nav_link");
+        const close = document.getElementById("close");
+
+        if (bar) {
+            bar.addEventListener('click', () => {
+                nav_link.classList.add('active');
+            })
+        }
+        if (close) {
+            close.addEventListener('click', () => {
+                nav_link.classList.remove('active');
+            })
+        }
+
+        //slider automatic
+
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.img-slider');
+        const totalSlides = slides.length;
+        function showSlides() {
+            // Calculate the new index
+            currentIndex = (currentIndex + 1) % totalSlides;
+
+            // Calculate the offset for the slider
+            const offset = -currentIndex * (100 / 3); // 3 images visible
+            document.getElementById('sliderf').style.transform = `translateX(${offset}%)`;
+        }
+        // Set interval for automatic sliding
+        setInterval(showSlides, 3000); // Change slide every 3 seconds
+
+
+
+
+    </script>
 </body>
 
 </html>
